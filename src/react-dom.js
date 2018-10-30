@@ -83,7 +83,7 @@ function setComponentProps(component, props) {
   renderComponent(component)
 }
 
-function renderComponent(component) {
+export function renderComponent(component) {
   let base
   const renderer = component.render()
   if (component.base && component.componentWillUpdate) {
