@@ -1,3 +1,4 @@
+import { renderComponent } from './react-dom'
 function createElement(tag, attrs, ...children) {
   return {
     tag,
@@ -6,8 +7,21 @@ function createElement(tag, attrs, ...children) {
   }
 }
 
+export class Component {
+  constructor(props = {}) {
+    this.state = {}
+    this.props = props
+  }
+
+  setState(stateChange) {
+    Object.assign(this.state, stateChange)
+    renderComponent(this)
+  }
+}
+
 const React = {
-  createElement
+  createElement,
+  Component
 }
 
 export default React

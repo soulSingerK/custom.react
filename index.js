@@ -1,11 +1,25 @@
 import React from './src/react'
 import ReactDOM from './src/react-dom'
 
-const element = (
-  <div>
-    hello <span>you zhege da zhu tizi</span>
-    <h2>12</h2>
-  </div>
-)
+function Hello(props) {
+  return (
+    <h1>{props.name}</h1>
+  )
+}
 
-ReactDOM.render(element, document.getElementById('root'))
+class App extends React.Component {
+  
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+    console.log(this.props)
+  }
+  
+  render() {
+    return <Hello name = "shisan"/>
+  }
+}
+
+ReactDOM.render(<App name="shisan"/>, document.getElementById('root'))
