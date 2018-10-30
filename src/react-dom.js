@@ -1,4 +1,5 @@
 import { Component } from './react'
+import { diff } from './diff'
 
 function render(vnode, container) {
   return container.appendChild(_render(vnode))
@@ -31,7 +32,7 @@ function _render(vnode) {
   return dom
 }
 
-function setAttribute(dom, name, value) {
+export function setAttribute(dom, name, value) {
   if (name === 'className') name = 'class'
   
   if (/on\w+/.test(name)) {
@@ -58,7 +59,7 @@ function setAttribute(dom, name, value) {
 }
 
 // 创建组件
-function createComponent(component, props) {
+export function createComponent(component, props) {
   let inst
   // 如果是类定义的组件， 直接返回实例
   if (component.prototype && component.prototype.render) {
@@ -73,7 +74,7 @@ function createComponent(component, props) {
   return inst
 }
 
-function setComponentProps(component, props) {
+export function setComponentProps(component, props) {
   if (!component.base) {
     if (component.componentWillMount) component.componentWillMount()
   } else if (component.componentWillReceiveProps) {
@@ -89,7 +90,8 @@ export function renderComponent(component) {
   if (component.base && component.componentWillUpdate) {
     component.componentWillUpdate()
   }
-  base = _render(renderer)
+  // base = _render(renderer)
+  base = diff(component.base, renderer)
   
   if (component.base) {
     if (component.componentDidUpdate) component.componentDidUpdate()
