@@ -1,4 +1,4 @@
-import { setAttribute, setComponentProps, createComponent } from './render.util'
+import { setAttribute, setComponentProps, createComponent } from './react-dom'
 /**
  * @param {HTMLElement} dom 真实DOM
  * @param {vnode} vnode 虚拟DOM

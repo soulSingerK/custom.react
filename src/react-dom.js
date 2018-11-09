@@ -2,6 +2,8 @@ import { Component } from './react'
 import { diff } from './diff'
 
 function render(vnode, container) {
+  debugger
+  console.log(1212)
   return container.appendChild(_render(vnode))
 }
 
