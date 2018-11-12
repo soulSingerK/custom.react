@@ -1,5 +1,5 @@
-import React from './src/react/react.shisan'
-import ReactDOM from './src/react-dom/react-dom.shisan'
+import React from './react'
+import ReactDOM from './react-dom'
 
 function Example() {
   return (
@@ -33,6 +33,8 @@ class App extends React.Component {
     )
   }
 }
+
+console.log(React)
 
 ReactDOM.render(
   <App />, 
